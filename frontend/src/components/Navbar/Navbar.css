@@ -61,6 +61,52 @@
     right: -8px;
 }
 
+.navbar-profile {
+    position: relative;
+}
+
+.icon-profile {
+    font-size: 35px;
+}
+
+.navbar-profile:hover .navbar-profile-dropdown {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #f9fdf1;
+    padding: 12px 25px;
+    border-radius: 4px;
+    border: 1px solid  #88A650;
+    outline: 2px solid white;
+    list-style: none;
+}
+
+.navbar-profile-dropdown {
+    position: absolute;
+    display: none;
+    right: 0;
+    z-index: 1;
+}
+
+.navbar-profile-dropdown li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.navbar-profile-dropdown li:hover {
+    color: #88A650;
+}
+
+.navbar-profile-dropdown svg {
+    font-size: 25px;
+    color: #88A650;
+}
+
+
+/* Media queries */
+
 @media (min-width: 1024px) {
     .navbar .logo {
         width: 140px;

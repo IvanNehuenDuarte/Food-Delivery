@@ -31,12 +31,12 @@ const placeOrder = async (req, res) => {
         quantity: item.quantity,
         currency_id: "ARS",
       })),
-      back_urls: {
-        success: `${front_url}/verify?success=true&orderId=${newOrder}`,
-        failure: "http://localhost:4000/payment-failure",
-        pending: "http://localhost:4000/payment-pending",
-      },
-      auto_return: "approved",
+      // back_urls: {
+      //   success: `${front_url}/verify?success=true&orderId=${newOrder}`,
+      //   failure: "http://localhost:4000/payment-failure",
+      //   pending: "http://localhost:4000/payment-pending",
+      // },
+      // auto_return: "approved",
     };
 
     const preference = new Preference(client);
@@ -54,7 +54,7 @@ const placeOrder = async (req, res) => {
   }
 };
 
-const verifyOrder = async () => {
+const verifyOrder = async (req, res) => {
   const { orderId, success } = req.body;
 
   try {
@@ -73,4 +73,15 @@ const verifyOrder = async () => {
   }
 };
 
-export { placeOrder, verifyOrder };
+const userOrders = async (req, res) => {
+  try {
+    const orders = await orderModel.find({ userId: req.body.userId });
+
+    res.json({ success: true, data: orders });
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, message: "Error al buscar pedidos" });
+  }
+};
+
+export { placeOrder, verifyOrder, userOrders };

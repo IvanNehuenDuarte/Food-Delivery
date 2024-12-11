@@ -7,6 +7,8 @@ const client = new MercadoPagoConfig({
 });
 
 const placeOrder = async (req, res) => {
+  const front_url = "http://localhost:5173";
+
   try {
     const { userId, items, amount, address, user } = req.body; // Extraemos directamente los datos necesarios
 
@@ -30,7 +32,7 @@ const placeOrder = async (req, res) => {
         currency_id: "ARS",
       })),
       // back_urls: {
-      //   success: "http://localhost:4000/payment-success",
+      //   success: `${front_url}/verify?success=true&orderId=${newOrder}`,
       //   failure: "http://localhost:4000/payment-failure",
       //   pending: "http://localhost:4000/payment-pending",
       // },
@@ -52,4 +54,23 @@ const placeOrder = async (req, res) => {
   }
 };
 
-export { placeOrder };
+const verifyOrder = async () => {
+  const { orderId, success } = req.body;
+
+  try {
+    if (success == "true") {
+      await orderModel.findByIdAndUpdate(orderId, { payment: true });
+
+      res.json({ success: true, message: "Paid" });
+    } else {
+      await orderModel.findOneAndDelete(orderId);
+
+      res.json({ success: false, message: "No paid" });
+    }
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, message: "Error en el pago" });
+  }
+};
+
+export { placeOrder, verifyOrder };

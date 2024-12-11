@@ -29,16 +29,12 @@ const placeOrder = async (req, res) => {
         quantity: item.quantity,
         currency_id: "ARS",
       })),
-      payer: {
-        name: user.name,
-        email: user.email,
-      },
       // back_urls: {
       //   success: "http://localhost:4000/payment-success",
       //   failure: "http://localhost:4000/payment-failure",
       //   pending: "http://localhost:4000/payment-pending",
       // },
-      auto_return: "approved",
+      // auto_return: "approved",
     };
 
     const preference = new Preference(client);

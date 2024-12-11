@@ -31,12 +31,12 @@ const placeOrder = async (req, res) => {
         quantity: item.quantity,
         currency_id: "ARS",
       })),
-      // back_urls: {
-      //   success: `${front_url}/verify?success=true&orderId=${newOrder}`,
-      //   failure: "http://localhost:4000/payment-failure",
-      //   pending: "http://localhost:4000/payment-pending",
-      // },
-      // auto_return: "approved",
+      back_urls: {
+        success: `${front_url}/verify?success=true&orderId=${newOrder}`,
+        failure: "http://localhost:4000/payment-failure",
+        pending: "http://localhost:4000/payment-pending",
+      },
+      auto_return: "approved",
     };
 
     const preference = new Preference(client);

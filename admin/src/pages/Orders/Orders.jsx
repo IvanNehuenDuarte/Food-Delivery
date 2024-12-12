@@ -14,7 +14,6 @@ const Orders = ({ url }) => {
 
       if (response.data.success) {
         setOrders(response.data.data);
-        console.log(response.data.data);
       } else {
         toast.error("Error");
       }
@@ -37,6 +36,7 @@ const Orders = ({ url }) => {
   useEffect(() => {
     fetchAllOrders();
   }, []);
+
   return (
     <div className="order add">
       <h3>Órdenes</h3>

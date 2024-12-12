@@ -72,7 +72,7 @@ const Navbar = ({ setShowLogin }) => {
           <div className="navbar-profile">
             <CgProfile className="icon-profile" />
             <ul className="navbar-profile-dropdown">
-              <li>
+              <li onClick={() => navigate("/myorders")}>
                 <IoBagHandleOutline />
                 <p>Órdenes</p>
               </li>

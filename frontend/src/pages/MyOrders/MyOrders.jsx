@@ -52,7 +52,7 @@ const MyOrders = () => {
               </p>
 
               <button>
-                <b>Seguimiento</b>
+                <b onClick={fetchOrders}>Seguimiento</b>
               </button>
             </div>
           );

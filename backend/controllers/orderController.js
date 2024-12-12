@@ -7,7 +7,7 @@ const client = new MercadoPagoConfig({
 });
 
 const placeOrder = async (req, res) => {
-  const front_url = "http://localhost:5173";
+  const front_url = "http://localhost:5174";
 
   try {
     const { userId, items, amount, address, user } = req.body; // Extraemos directamente los datos necesarios

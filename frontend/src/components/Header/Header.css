@@ -1,7 +1,7 @@
 .header {
     height: 34vw;
     margin: 30px auto;
-    background: url('./public/images/mila-background.webp') no-repeat center center;
+    background: url('/images/mila-background.webp') no-repeat center center;
     background-size: cover;
     position: relative;
     border-radius: 20px;

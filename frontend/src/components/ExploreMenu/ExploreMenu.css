@@ -21,11 +21,28 @@
     gap: 30px;
     text-align: center;
     margin: 20px 0px;
-    overflow-x: scroll;
+    overflow-x: auto;
+    scrollbar-width: none; /* Ocultar scrollbar en Firefox */
+    -ms-overflow-style: none; /* Ocultar scrollbar en IE/Edge */
 }
 
+/* Ocultar scrollbar en Chrome, Safari y Edge */
 .explore-menu-list::-webkit-scrollbar {
     display: none;
+}
+
+/* Scroll horizontal con rueda del mouse */
+.explore-menu-list {
+    scroll-behavior: smooth;
+}
+
+.explore-menu-list:hover {
+    cursor: grab;
+}
+
+/* Efecto para desplazarse horizontalmente */
+.explore-menu-list {
+    overscroll-behavior-x: contain;
 }
 
 .explore-menu-list-item img {

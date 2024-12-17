@@ -26,11 +26,6 @@ app.use("/api/cart", cartRouter);
 app.use("/api/order", orderRouter);
 app.use("/images", express.static("uploads"));
 
-// Routes
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
-
 app.listen(port, () => {
   console.log(`App listen in port http://localhost:${port}`);
 });

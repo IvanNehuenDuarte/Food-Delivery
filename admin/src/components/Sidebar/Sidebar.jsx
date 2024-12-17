@@ -9,7 +9,7 @@ const Sidebar = () => {
       <div className="sidebar-options">
         <NavLink to="/add" className="sidebar-option">
           <MdOutlineAddBox />
-          <p>Agregar Items</p>
+          <p>Agregar Item</p>
         </NavLink>
         <NavLink to="/list" className="sidebar-option">
           <FaThList />

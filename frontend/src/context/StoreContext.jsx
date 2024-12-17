@@ -8,6 +8,7 @@ const StoreContextProvider = (props) => {
   const [cartItems, setCartItems] = useState({});
 
   const url = import.meta.env.VITE_API_URL;
+  console.log(url);
 
   const [token, setToken] = useState("");
 
